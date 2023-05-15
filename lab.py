@@ -10,35 +10,10 @@ class SchoolPen:
         self.numPens = num_pens
         self.numErasers = num_erasers
 
-    def get_id(self):
-        return self.id
-
-    def get_brand(self):
-        return self.brand
-
-    def get_color(self):
-        return self.color
-
-    def get_material(self):
-        return self.material
-
-    def get_size(self):
-        return self.size
-
-    def set_id(self, id):
-        self.id = id
-
-    def set_brand(self, brand):
-        self.brand = brand
-
-    def set_color(self, color):
-        self.color = color
-
-    def set_material(self, material):
-        self.material = material
-
-    def set_size(self, size):
-        self.size = size
+    @staticmethod
+    def get_instance():
+        SchoolPen.instance = SchoolPen()
+        return SchoolPen.instance
 
     def add_pencil(self):
         self.numPencils += 1

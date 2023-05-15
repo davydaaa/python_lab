@@ -10,6 +10,36 @@ class SchoolPen:
         self.numPens = num_pens
         self.numErasers = num_erasers
 
+    def get_id(self):
+        return self.id
+
+    def get_brand(self):
+        return self.brand
+
+    def get_color(self):
+        return self.color
+
+    def get_material(self):
+        return self.material
+
+    def get_size(self):
+        return self.size
+
+    def set_id(self,id):
+        self.id = id
+
+    def set_brand(self, brand):
+        self.brand = brand
+
+    def set_color(self, color):
+        self.color = color
+
+    def set_material(self, material):
+        self.material = material
+
+    def set_size(self, size):
+        self.size = size
+
     def addpencil(self):
         self.numPencils += 1
 
@@ -28,11 +58,8 @@ class SchoolPen:
         return "School Pen ID: " + self.id
 
 
-schoolPens = [None] * 4
-schoolPens[0] = SchoolPen()
-schoolPens[1] = SchoolPen("Bic", "Blue", "Plastic", 10.0, 2, 1, 1)
-schoolPens[2] = SchoolPen()
-myPen = SchoolPen("isn-102", "Bic", "Blue", "Plastic", 5.5, 2, 1)
+schoolPens = [SchoolPen(), SchoolPen("Bic", "Blue", "Plastic", 10.0, 2, 1, 1), SchoolPen(),
+              SchoolPen("isn-102", "Bic", "Blue", "Plastic", 5.5, 2, 1)]
 
 for schoolPen in schoolPens:
     print(str(schoolPen))

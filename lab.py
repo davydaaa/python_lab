@@ -25,7 +25,7 @@ class SchoolPen:
     def get_size(self):
         return self.size
 
-    def set_id(self,id):
+    def set_id(self, id):
         self.id = id
 
     def set_brand(self, brand):
@@ -40,17 +40,17 @@ class SchoolPen:
     def set_size(self, size):
         self.size = size
 
-    def addpencil(self):
+    def add_pencil(self):
         self.numPencils += 1
 
-    def addpen(self):
+    def add_pen(self):
         self.numPens += 1
 
-    def removepencil(self):
+    def remove_pencil(self):
         if self.numPencils > 0:
             self.numPencils -= 1
 
-    def removepen(self):
+    def remove_pen(self):
         if self.numPens > 0:
             self.numPens -= 1
 

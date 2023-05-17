@@ -10,10 +10,12 @@ class SchoolPen:
         self.numPens = num_pens
         self.numErasers = num_erasers
 
-    @staticmethod
-    def get_instance():
-        SchoolPen.instance = SchoolPen()
-        return SchoolPen.instance
+    __instance = None
+
+    @classmethod
+    def get_instance(cls):
+        cls.__instance = cls()
+        return cls.__instance
 
     def add_pencil(self):
         self.numPencils += 1
@@ -37,4 +39,4 @@ schoolPens = [SchoolPen(), SchoolPen("Bic", "Blue", "Plastic", 10.0, 2, 1, 1), S
               SchoolPen("isn-102", "Bic", "Blue", "Plastic", 5.5, 2, 1)]
 
 for schoolPen in schoolPens:
-    print(str(schoolPen))
+    print(schoolPen)

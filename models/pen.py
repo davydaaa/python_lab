@@ -5,6 +5,13 @@ from abc import ABC, abstractmethod
 
 
 class Pen(ABC):
+    def do_something(self):
+        """
+        Abstract method to perform some action with the pen.
+
+        Subclasses must override this method.
+        """
+        pass
     """
     Abstract base class representing a pen.
     """

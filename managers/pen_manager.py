@@ -9,6 +9,7 @@ class PenManager:
     """
     Class representing a pen manager.
     """
+
     def __init__(self):
         """
         Initializes a pen manager with an empty pen list.
@@ -31,6 +32,7 @@ class PenManager:
             print(pen)
             print("Price:", pen.calculate_price())
             print()
+
 
 
 schoolPen1 = SchoolPen(num_pencils=2, num_pens=1, num_erasers=1)

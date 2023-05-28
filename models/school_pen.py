@@ -4,8 +4,6 @@ This module provides classes for managing school pens and calculating their pric
 from models.pen import Pen
 
 # pylint: disable=too-few-public-methods
-
-
 class SchoolPen(Pen):
     """
     Concrete subclass representing a school pen.
@@ -23,4 +21,5 @@ class SchoolPen(Pen):
         pencil_cost = self.num_pencils * self.PRICE_PER_PENCIL
         pen_cost = self.num_pens * self.PRICE_PER_PEN
         eraser_cost = self.num_erasers * self.PRICE_PER_ERASER
+
         return pencil_cost + pen_cost + eraser_cost

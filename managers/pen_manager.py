@@ -49,7 +49,7 @@ class PenManager:
         """
         Adds a pen to the pen manager.
 
-        :param _pen: The pen to add.
+        :param _pen: The pen  to add.
         """
         self.pen_list.append(_pen)
 

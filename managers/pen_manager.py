@@ -29,6 +29,7 @@ manager.add_pen(markerPen)
 # Display information about the pens in the manager
 manager.display_pens()
 """
+from decorator import logged, LackPenException
 from models.school_pen import SchoolPen
 from models.marker_pen import MarkerPen
 
@@ -153,19 +154,25 @@ print("Iterating over pens:")
 for pen in manager:
     print(pen)
 
-results = manager.get_results()
-print("Results:", results)
 
-enumerated_pens = manager.get_enumerated_pens()
-print("Enumerated pens:")
-for index, pen in enumerated_pens:
-    print(f"Pen at index {index}:", pen)
+def is_expensive(_pen):
+    return _pen.calculate_price() > 5.0
 
-combined_results = manager.get_combined_results()
-print("Combined results:")
-for pen, result in combined_results:
-    print("Pen:", pen)
-    print("Result:", result)
 
-int_attributes = manager.get_attributes_by_type(int)
-print("Integer attributes:", int_attributes)
+conditions = manager.check_conditions(is_expensive)
+print("All pens are expensive:", conditions["all"])
+print("Any pen is expensive:", conditions["any"])
+
+
+@logged(LackPenException, "console")
+def display_pens(self):
+    if len(self.pen_list) == 0:
+        raise LackPenException()
+    for _pen in self.pen_list:
+        print(_pen)
+        print("Price:", _pen.calculate_price())
+        print()
+
+
+manager = PenManager()
+manager.display_pens()

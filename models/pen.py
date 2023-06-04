@@ -2,19 +2,22 @@
 This module provides classes for managing pens and calculating their prices.
 """
 from abc import ABC, abstractmethod
+from decorator import logged, LackPenException
 
 
 class Pen(ABC):
+    @logged(LackPenException, mode="console")
+    def calculate_price(self, num_pens):
+        if num_pens == 0:
+            raise LackPenException("Not enough pens")
+
     def do_something(self):
         """
         Abstract method to perform some action with the pen.
 
         Subclasses must override this method.
         """
-        pass
-    """
-    Abstract base class representing a pen.
-    """
+
     def __init__(self, num_pencils=None, num_pens=None, num_erasers=None):
         """
         Initializes a pen with the specified quantities of pencils, pens, and erasers.

@@ -29,9 +29,10 @@ manager.add_pen(markerPen)
 # Display information about the pens in the manager
 manager.display_pens()
 """
-from decorator import logged, LackPenException
 from models.school_pen import SchoolPen
 from models.marker_pen import MarkerPen
+from decorator import logged, LackPenException
+from exceptions import LackPenException
 
 
 class PenManager:
@@ -61,6 +62,10 @@ class PenManager:
             print(_pen)
             print("Price:", _pen.calculate_price())
             print()
+
+    class LackPenException(Exception):
+
+        pass
 
     def __len__(self):
         """
@@ -133,7 +138,7 @@ class PenManager:
         }
 
 
-schoolPen1 = SchoolPen(num_pencils=2, num_pens=1, num_erasers=1)
+schoolPen1 = SchoolPen(num_pencils=2, num_pens=0, num_erasers=1)
 schoolPen2 = SchoolPen(num_pencils=5, num_pens=2, num_erasers=1)
 markerPen = MarkerPen(num_pens=3)
 
@@ -145,34 +150,4 @@ manager.add_pen(markerPen)
 
 manager.display_pens()
 
-print("Number of pens:", len(manager))
-
-# Get the pen at index 0
-print("Pen at index 0:", manager[0])
-
-print("Iterating over pens:")
-for pen in manager:
-    print(pen)
-
-
-def is_expensive(_pen):
-    return _pen.calculate_price() > 5.0
-
-
-conditions = manager.check_conditions(is_expensive)
-print("All pens are expensive:", conditions["all"])
-print("Any pen is expensive:", conditions["any"])
-
-
-@logged(LackPenException, "console")
-def display_pens(self):
-    if len(self.pen_list) == 0:
-        raise LackPenException()
-    for _pen in self.pen_list:
-        print(_pen)
-        print("Price:", _pen.calculate_price())
-        print()
-
-
-manager = PenManager()
-manager.display_pens()
+#raise LackPenException()

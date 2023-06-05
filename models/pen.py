@@ -31,13 +31,7 @@ class Pen(ABC):
         self.num_pens = num_pens
         self.num_erasers = num_erasers
 
-    @abstractmethod
-    def calculate_price(self):
-        """
-        Abstract method to calculate the price of the pen.
 
-        :return: The calculated price.
-        """
 
     def __str__(self):
         """

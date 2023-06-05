@@ -12,6 +12,8 @@ Example:
 Attributes:
     None
 """
+
+
 class LackPenException(Exception):
     """Exception raised when there are not enough pens available.
 

@@ -16,8 +16,7 @@ def logged(exception, mode):
 
                 if mode == "console":
                     handler = logging.StreamHandler()
-                elif mode == "file":
-                    handler = logging.FileHandler("log.txt")
+                elif mode == "file":                    handler = logging.FileHandler("log.txt")
                 else:
                     raise ValueError(f"Invalid mode: {mode}") from e
 

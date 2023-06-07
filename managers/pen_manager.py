@@ -63,9 +63,6 @@ class PenManager:
             print("Price:", _pen.calculate_price())
             print()
 
-    class LackPenException(Exception):
-
-        pass
 
     def __len__(self):
         """
@@ -150,4 +147,3 @@ manager.add_pen(markerPen)
 
 manager.display_pens()
 
-#raise LackPenException()

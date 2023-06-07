@@ -1,6 +1,7 @@
 """Module providing the LackPenException class.
 
-This module defines the LackPenException class, which is an exception raised when there are not enough pens available.
+This module defines the LackPenException class, which is an exception raised when there
+are not enough pens available.
 
 Example:
     try:
@@ -11,6 +12,8 @@ Example:
 
 Attributes:
     None
+
+
 """
 
 

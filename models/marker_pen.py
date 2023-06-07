@@ -19,3 +19,5 @@ class MarkerPen(Pen):
         :return: The total price of the marker pen.
         """
         return self.num_pens * self.PRICE_PER_MARKER
+
+

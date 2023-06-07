@@ -31,6 +31,8 @@ manager.display_pens()
 """
 from models.school_pen import SchoolPen
 from models.marker_pen import MarkerPen
+from decorator import logged, LackPenException
+from exceptions import LackPenException
 
 
 class PenManager:
@@ -48,7 +50,7 @@ class PenManager:
         """
         Adds a pen to the pen manager.
 
-        :param _pen: The pen to add.
+        :param _pen: The pen  to add.
         """
         self.pen_list.append(_pen)
 
@@ -60,6 +62,10 @@ class PenManager:
             print(_pen)
             print("Price:", _pen.calculate_price())
             print()
+
+    class LackPenException(Exception):
+
+        pass
 
     def __len__(self):
         """
@@ -132,7 +138,7 @@ class PenManager:
         }
 
 
-schoolPen1 = SchoolPen(num_pencils=2, num_pens=1, num_erasers=1)
+schoolPen1 = SchoolPen(num_pencils=2, num_pens=0, num_erasers=1)
 schoolPen2 = SchoolPen(num_pencils=5, num_pens=2, num_erasers=1)
 markerPen = MarkerPen(num_pens=3)
 
@@ -144,28 +150,4 @@ manager.add_pen(markerPen)
 
 manager.display_pens()
 
-print("Number of pens:", len(manager))
-
-# Get the pen at index 0
-print("Pen at index 0:", manager[0])
-
-print("Iterating over pens:")
-for pen in manager:
-    print(pen)
-
-results = manager.get_results()
-print("Results:", results)
-
-enumerated_pens = manager.get_enumerated_pens()
-print("Enumerated pens:")
-for index, pen in enumerated_pens:
-    print(f"Pen at index {index}:", pen)
-
-combined_results = manager.get_combined_results()
-print("Combined results:")
-for pen, result in combined_results:
-    print("Pen:", pen)
-    print("Result:", result)
-
-int_attributes = manager.get_attributes_by_type(int)
-print("Integer attributes:", int_attributes)
+#raise LackPenException()
